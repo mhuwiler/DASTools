@@ -62,15 +62,30 @@ def parseGOquery(queryoutput):
            
     return files 
 
-def WriteComaSeparatedFileList(filename, files): 
+def WriteComaSeparatedFileList(filename, files, prefix="", postfix=""): 
     if CheckFileExistence(filename): 
       print "The file '{}' already exists, are you sure you want to overwrite it?".format(filename)
       if (not PromptYesNo(True)): 
         print "Aborting!"
         sys.exit()
     with open(filename, "w") as output: 
+      output.write(prefix)
       for line in files: 
         output.write("\"{}\",\n".format(line))  
+      output.write(postfix)
+
+def WritePythonFileList(filename, files): 
+    return WriteComaSeparatedFileList(filename, files, "FILES = [", "]")
+    #if CheckFileExistence(filename): 
+    #  print "The file '{}' already exists, are you sure you want to overwrite it?".format(filename)
+    #  if (not PromptYesNo(True)): 
+    #    print "Aborting!"
+    #    sys.exit()
+    #with open(filename, "w") as output: 
+    #  output.write("FILES = [")
+    #  for line in files: 
+    #    output.write("\"{}\",\n".format(line))  
+    #  output.write("]")
 
 def GetFileListFromFolder(foldername):
     files = glob.glob(foldername)
