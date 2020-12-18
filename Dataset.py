@@ -9,6 +9,9 @@ QCD  = [
 Signal = [
   
 ]
+HLTData = [
+	"/EphemeralZeroBias2/Run2018D-v1/RAW", 
+]
 
 def getDataset(description):
 	patterns = []
@@ -22,6 +25,7 @@ def getDataset(description):
 
 	elif description == "mc":    patterns = QCD+Signal
 	elif description == "all":   patterns = QCD+Signal
+	elif description == "HLTData": 	patterns = HLTData
 
 	else: 
 		print("Dataset: No dataset was specified!\n Please specify which dataset to process (e.g. {QCD, sig, bkg})! ")
