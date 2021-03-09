@@ -113,6 +113,10 @@ def PrependPath(files, path):
     newfiles = [path+file for file in files]
     return newfiles
 
+def RemovePrefix(files, prefix): 
+    newfiles = [file[len(prefix):] if file.startswith(prefix) else file for file in files]
+    return newfiles
+
 
 def getDatasetNameFromPath(pattern): 
 	name = pattern.split("/")[1].replace("/","") + ("-" + pattern.split("/")[2].split("-")[0] if 'Run201' in pattern else "")
