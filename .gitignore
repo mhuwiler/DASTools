@@ -1,0 +1,13 @@
+.lastlxplus
+*.pdf
+*.png
+*.jpeg
+*.gif
+*.eps
+*.root
+*.log
+*.txt
+*.pyc
+.sys.v#*
+?
+
