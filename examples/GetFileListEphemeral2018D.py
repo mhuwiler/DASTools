@@ -3,7 +3,7 @@
 
 from __future__ import division, print_function
 
-import DASTools
+import MyTools.DASTools.DASTools as DASTools
 
 
 folders = ['/store/data/Run2018D/EphemeralHLTPhysics1/RAW/v1/000/323/775/00000/',
